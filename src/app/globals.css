@@ -1,26 +1,411 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+*,
+html,
+body {
+  @apply m-0 p-0 box-border;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*::-webkit-scrollbar {
+  display: none;
 }
 
-@media (prefers-color-scheme: dark) {
+/* ═══════════════════════════════════════════════════════════
+   THEME SYSTEM — all 5 themes, driven by html[data-theme]
+   Default (no attribute) = Theme 5 · Light + Blue
+   Preview routes set the attribute via JS — no CSS edits needed.
+   ═══════════════════════════════════════════════════════════ */
+
+@layer base {
+
+  /* ─── DEFAULT — Theme 4 · Charcoal + Orange ─── */
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 20 8% 6%;
+    --foreground: 30 10% 93%;
+    --card: 20 7% 8%;
+    --card-foreground: 30 10% 95%;
+    --popover: 20 7% 7%;
+    --popover-foreground: 30 10% 97%;
+    --primary: 25 92% 58%;
+    --primary-foreground: 20 8% 5%;
+    --secondary: 32 88% 66%;
+    --secondary-foreground: 20 8% 5%;
+    --muted: 20 8% 11%;
+    --muted-foreground: 28 12% 50%;
+    --accent: 28 95% 62%;
+    --accent-foreground: 20 8% 5%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 20 10% 14%;
+    --input: 20 8% 10%;
+    --ring: 25 92% 58%;
+    --radius: 0.75rem;
+    --glass-bg:               hsl(20 10% 7% / 0.90);
+    --glass-bg-light:         hsl(20 8% 10% / 0.82);
+    --glass-border:           hsl(25 55% 40% / 0.40);
+    --glass-border-hover:     hsl(25 70% 50% / 0.62);
+    --glass-glow:             0px 0px 28px hsl(25 92% 55% / 0.25);
+    --glass-glow-intense:     0px 0px 44px hsl(25 95% 58% / 0.38);
+    --glass-backdrop:         blur(16px) saturate(160%);
+    --glass-backdrop-intense: blur(24px) saturate(190%);
+    --glass-shimmer: linear-gradient(110deg, transparent 25%, hsl(25 90% 65% / 0.10) 50%, hsl(35 85% 70% / 0.14) 55%, transparent 75%);
+    --text-glow:              0px 0px 16px hsl(25 92% 60% / 0.45);
+    --tracking-normal:        0.05rem;
+    --luxury-hover-glow:      0px 0px 18px hsl(25 92% 55% / 0.35);
+  }
+
+  /* ─── THEME 1 — Monochrome (Vercel-inspired) ─── */
+  html[data-theme="1"] {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 93%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 97%;
+    --primary: 0 0% 92%;
+    --primary-foreground: 0 0% 5%;
+    --secondary: 0 0% 55%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 48%;
+    --accent: 0 0% 75%;
+    --accent-foreground: 0 0% 5%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 13%;
+    --input: 0 0% 8%;
+    --ring: 0 0% 70%;
+    --radius: 0.75rem;
+    --glass-bg:               hsl(0 0% 6% / 0.88);
+    --glass-bg-light:         hsl(0 0% 9% / 0.82);
+    --glass-border:           hsl(0 0% 30% / 0.45);
+    --glass-border-hover:     hsl(0 0% 55% / 0.65);
+    --glass-glow:             0px 0px 28px hsl(0 0% 80% / 0.07);
+    --glass-glow-intense:     0px 0px 44px hsl(0 0% 90% / 0.11);
+    --glass-backdrop:         blur(16px) saturate(150%);
+    --glass-backdrop-intense: blur(24px) saturate(170%);
+    --glass-shimmer: linear-gradient(110deg, transparent 25%, hsl(0 0% 90% / 0.08) 50%, hsl(0 0% 100% / 0.10) 55%, transparent 75%);
+    --text-glow:              0px 0px 16px hsl(0 0% 80% / 0.3);
+    --tracking-normal:        0.05rem;
+    --luxury-hover-glow:      0px 0px 18px hsl(0 0% 80% / 0.2);
+  }
+
+  /* ─── THEME 2 — Navy + Cyan ─── */
+  html[data-theme="2"] {
+    --background: 218 45% 6%;
+    --foreground: 195 15% 93%;
+    --card: 218 42% 8%;
+    --card-foreground: 195 15% 95%;
+    --popover: 218 42% 7%;
+    --popover-foreground: 195 15% 97%;
+    --primary: 187 85% 62%;
+    --primary-foreground: 218 45% 6%;
+    --secondary: 190 75% 72%;
+    --secondary-foreground: 218 45% 6%;
+    --muted: 218 38% 11%;
+    --muted-foreground: 200 20% 52%;
+    --accent: 183 100% 65%;
+    --accent-foreground: 218 45% 6%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 218 32% 15%;
+    --input: 218 38% 9%;
+    --ring: 187 85% 62%;
+    --radius: 0.75rem;
+    --glass-bg:               hsl(218 48% 7% / 0.90);
+    --glass-bg-light:         hsl(218 42% 10% / 0.82);
+    --glass-border:           hsl(187 55% 45% / 0.35);
+    --glass-border-hover:     hsl(187 70% 55% / 0.58);
+    --glass-glow:             0px 0px 28px hsl(187 85% 60% / 0.22);
+    --glass-glow-intense:     0px 0px 44px hsl(187 90% 65% / 0.35);
+    --glass-backdrop:         blur(16px) saturate(170%);
+    --glass-backdrop-intense: blur(24px) saturate(200%);
+    --glass-shimmer: linear-gradient(110deg, transparent 25%, hsl(187 80% 70% / 0.10) 50%, hsl(200 80% 80% / 0.14) 55%, transparent 75%);
+    --text-glow:              0px 0px 16px hsl(187 85% 65% / 0.45);
+    --tracking-normal:        0.05rem;
+    --luxury-hover-glow:      0px 0px 18px hsl(187 85% 60% / 0.35);
+  }
+
+  /* ─── THEME 3 — Charcoal + Emerald ─── */
+  html[data-theme="3"] {
+    --background: 150 10% 7%;
+    --foreground: 145 10% 93%;
+    --card: 150 9% 9%;
+    --card-foreground: 145 10% 95%;
+    --popover: 150 9% 8%;
+    --popover-foreground: 145 10% 97%;
+    --primary: 152 60% 52%;
+    --primary-foreground: 150 10% 5%;
+    --secondary: 152 52% 64%;
+    --secondary-foreground: 150 10% 5%;
+    --muted: 150 10% 12%;
+    --muted-foreground: 148 14% 50%;
+    --accent: 152 65% 56%;
+    --accent-foreground: 150 10% 5%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 150 12% 15%;
+    --input: 150 10% 10%;
+    --ring: 152 60% 52%;
+    --radius: 0.75rem;
+    --glass-bg:               hsl(150 12% 8% / 0.90);
+    --glass-bg-light:         hsl(150 10% 11% / 0.82);
+    --glass-border:           hsl(152 42% 38% / 0.40);
+    --glass-border-hover:     hsl(152 55% 48% / 0.62);
+    --glass-glow:             0px 0px 28px hsl(152 60% 48% / 0.28);
+    --glass-glow-intense:     0px 0px 44px hsl(152 65% 52% / 0.42);
+    --glass-backdrop:         blur(16px) saturate(160%);
+    --glass-backdrop-intense: blur(24px) saturate(190%);
+    --glass-shimmer: linear-gradient(110deg, transparent 25%, hsl(152 60% 65% / 0.10) 50%, hsl(160 70% 75% / 0.14) 55%, transparent 75%);
+    --text-glow:              0px 0px 16px hsl(152 60% 55% / 0.42);
+    --tracking-normal:        0.05rem;
+    --luxury-hover-glow:      0px 0px 18px hsl(152 60% 50% / 0.32);
+  }
+
+  /* ─── THEME 4 — Charcoal + Orange ─── */
+  html[data-theme="4"] {
+    --background: 20 8% 6%;
+    --foreground: 30 10% 93%;
+    --card: 20 7% 8%;
+    --card-foreground: 30 10% 95%;
+    --popover: 20 7% 7%;
+    --popover-foreground: 30 10% 97%;
+    --primary: 25 92% 58%;
+    --primary-foreground: 20 8% 5%;
+    --secondary: 32 88% 66%;
+    --secondary-foreground: 20 8% 5%;
+    --muted: 20 8% 11%;
+    --muted-foreground: 28 12% 50%;
+    --accent: 28 95% 62%;
+    --accent-foreground: 20 8% 5%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 20 10% 14%;
+    --input: 20 8% 10%;
+    --ring: 25 92% 58%;
+    --radius: 0.75rem;
+    --glass-bg:               hsl(20 10% 7% / 0.90);
+    --glass-bg-light:         hsl(20 8% 10% / 0.82);
+    --glass-border:           hsl(25 55% 40% / 0.40);
+    --glass-border-hover:     hsl(25 70% 50% / 0.62);
+    --glass-glow:             0px 0px 28px hsl(25 92% 55% / 0.25);
+    --glass-glow-intense:     0px 0px 44px hsl(25 95% 58% / 0.38);
+    --glass-backdrop:         blur(16px) saturate(160%);
+    --glass-backdrop-intense: blur(24px) saturate(190%);
+    --glass-shimmer: linear-gradient(110deg, transparent 25%, hsl(25 90% 65% / 0.10) 50%, hsl(35 85% 70% / 0.14) 55%, transparent 75%);
+    --text-glow:              0px 0px 16px hsl(25 92% 60% / 0.45);
+    --tracking-normal:        0.05rem;
+    --luxury-hover-glow:      0px 0px 18px hsl(25 92% 55% / 0.35);
+  }
+
+  /* ─── THEME 5 — same as :root (explicit override) ─── */
+  html[data-theme="5"] {
+    --background: 0 0% 99%;
+    --foreground: 220 18% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 18% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 18% 10%;
+    --primary: 211 100% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 211 88% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 12% 46%;
+    --accent: 211 95% 52%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 14% 90%;
+    --input: 220 14% 94%;
+    --ring: 211 100% 48%;
+    --radius: 0.75rem;
+    --glass-bg:               hsl(0 0% 100% / 0.78);
+    --glass-bg-light:         hsl(0 0% 100% / 0.92);
+    --glass-border:           hsl(211 50% 80% / 0.50);
+    --glass-border-hover:     hsl(211 65% 65% / 0.70);
+    --glass-glow:             0px 0px 28px hsl(211 100% 55% / 0.12);
+    --glass-glow-intense:     0px 0px 44px hsl(211 100% 55% / 0.20);
+    --glass-backdrop:         blur(20px) saturate(180%);
+    --glass-backdrop-intense: blur(28px) saturate(200%);
+    --glass-shimmer: linear-gradient(110deg, transparent 25%, hsl(211 90% 70% / 0.10) 50%, hsl(220 80% 80% / 0.14) 55%, transparent 75%);
+    --text-glow:              0px 0px 16px hsl(211 100% 55% / 0.30);
+    --tracking-normal:        0.05rem;
+    --luxury-hover-glow:      0px 0px 18px hsl(211 100% 52% / 0.22);
+  }
+
+  body {
+    letter-spacing: var(--tracking-normal);
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter), sans-serif;
+  }
+
+  .font-inter        { font-family: var(--font-inter), sans-serif; }
+  .font-mono         { font-family: var(--font-mono), monospace; }
+  .font-nasalization { font-family: var(--font-nasalization), sans-serif; }
+  .font-quentine     { font-family: var(--font-quentine), serif; }
+
+  ::-webkit-scrollbar        { width: 6px; }
+  ::-webkit-scrollbar-track  { background: transparent; }
+  ::-webkit-scrollbar-thumb  { background: hsl(var(--primary) / 0.35); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--primary) / 0.6); }
+}
+
+@layer components {
+
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--glass-glow);
+    transition: all 0.3s ease;
+    will-change: transform, box-shadow;
+  }
+
+  .glass-card:hover {
+    background: var(--glass-bg-light);
+    border-color: hsl(var(--glass-border-hover));
+    box-shadow: var(--glass-glow-intense);
+    transform: translateY(-2px);
+  }
+
+  .glass-shimmer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--glass-shimmer);
+    transition: left 0.8s ease-in-out;
+    z-index: 1;
+    will-change: left;
+  }
+
+  .glass-shimmer:hover::before { left: 100%; }
+
+  .btn-primary {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border: 1px solid hsl(var(--primary));
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background: hsl(var(--primary) / 0.88);
+    box-shadow: var(--luxury-hover-glow);
+    transform: translateY(-1px);
+  }
+
+  .floating-nav {
+    backdrop-filter: blur(14px) saturate(160%);
+    background: var(--glass-bg);
+    border: 1px solid hsl(var(--glass-border));
+    will-change: transform, opacity;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50%       { transform: translateY(-20px) rotate(180deg); }
+  }
+
+  .floating-orb {
+    animation: float 6s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @keyframes marquee-infinite {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .marquee-infinite {
+    display: flex;
+    animation: marquee-infinite 30s linear infinite;
+    width: fit-content;
+    will-change: transform;
+  }
+
+  .marquee-infinite:hover { animation-play-state: paused; }
+
+  @keyframes marquee-reverse {
+    0%   { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  .marquee-reverse {
+    display: flex;
+    animation: marquee-reverse 30s linear infinite;
+    width: fit-content;
+    will-change: transform;
+  }
+
+  .marquee-reverse:hover { animation-play-state: paused; }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 16px hsl(var(--primary) / 0.4); transform: scale(1); }
+    50%       { box-shadow: 0 0 26px hsl(var(--primary) / 0.7); transform: scale(1.05); }
+  }
+
+  .timeline-dot {
+    background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--secondary)));
+    box-shadow: 0 0 16px hsl(var(--primary) / 0.4);
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .project-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--glass-glow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .project-card:hover {
+    background: var(--glass-bg-light);
+    border-color: hsl(var(--glass-border-hover));
+    box-shadow: var(--glass-glow-intense), var(--luxury-hover-glow);
+    transform: translateY(-4px) scale(1.02);
+  }
+
+  .tech-badge {
+    background: hsl(var(--primary) / 0.1);
+    border: 1px solid hsl(var(--primary) / 0.25);
+    color: hsl(var(--foreground) / 0.9);
+    font-family: var(--font-mono), monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+  }
+
+  .tech-badge:hover {
+    background: hsl(var(--primary) / 0.18);
+    border-color: hsl(var(--primary) / 0.4);
+    transform: scale(1.05);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-infinite, .marquee-reverse { animation: none; }
+    .floating-orb  { animation: none; }
+    .timeline-dot  { animation: none; }
+    * {
+      animation-duration:        0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration:       0.01ms !important;
+    }
+  }
 }
