@@ -1,0 +1,130 @@
+"use client";
+
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { nasalization } from "@/app/fonts";
+import { selfData } from "@/constant";
+import Link from "next/link";
+import Image from "next/image";
+import { LuMapPinned } from "react-icons/lu";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1] as const,
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
+export const About = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section
+      id="about"
+      ref={ref}
+      className="py-24 max-w-6xl mx-auto relative overflow-hidden"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 overflow-x-hidden">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Avatar / Visual Column */}
+          <motion.div
+            className="flex justify-center md:justify-start"
+            initial={{ opacity: 0, x: -40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+          >
+            <motion.div
+              className="relative group"
+              whileHover={{ scale: 1.02, y: -4 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div
+                className="h-[480px] aspect-[977/1610] rounded-2xl overflow-hidden relative border-2"
+                style={{ borderColor: "hsl(var(--glass-border))" }}
+              >
+                <Image
+                  src="/profile.png"
+                  alt={selfData.name}
+                  fill
+                  className="object-contain transition-transform duration-500 group-hover:scale-105"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Content Column */}
+          <motion.div
+            className="space-y-8"
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
+            <motion.div variants={itemVariants}>
+              <h2
+                className={`${nasalization.className} text-4xl md:text-5xl font-bold`}
+                style={{ color: "hsl(var(--primary))" }}
+              >
+                About Me
+              </h2>
+            </motion.div>
+
+            <motion.div
+              className="space-y-6 leading-relaxed"
+              style={{ color: "hsl(var(--foreground) / 0.8)" }}
+              variants={itemVariants}
+            >
+              {selfData.about.map((paragraph, index) => (
+                <p
+                  key={index}
+                  className="text-xs hover:text-primary-foreground transition-colors duration-200"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </motion.div>
+
+            <motion.div className="flex items-center gap-4 text-sm" variants={itemVariants}>
+              <motion.div
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Link
+                  href={`https://www.google.com/maps/place/${selfData.current_location.city}+${selfData.current_location.state}+${selfData.current_location.country}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-6 py-3 rounded-full border border-primary/20 hover:border-primary/50 group transition-all duration-300"
+                >
+                  <LuMapPinned
+                    className="w-4 h-4 transition-colors group-hover:scale-110"
+                    style={{ color: "hsl(var(--primary))" }}
+                  />
+                  <span style={{ color: "hsl(var(--foreground))" }}>
+                    {selfData.current_location.city}, {selfData.current_location.state}
+                  </span>
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};

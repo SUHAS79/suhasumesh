@@ -1,0 +1,38 @@
+export const selfData = {
+  name: "Suhas Umesh",
+  first_name: "Suhas",
+  last_name: "Umesh",
+  jobTitle: "CS Graduate · AI/ML Researcher · Aspiring PM",
+  workFor: "The National Institute of Engineering, Mysuru",
+  current_location: {
+    city: "Mysuru",
+    state: "Karnataka",
+    country: "India",
+  },
+  email: "suhasu710@gmail.com",
+  resume: "https://github.com/SUHAS79/Resume/raw/main/Suhas_Umesh_PM_CV_FINAL.pdf",
+  roles: [
+    "AI/ML Researcher",
+    "Aspiring Product Manager",
+    "IEEE Published Author",
+    "Human-in-the-Loop Builder",
+    "Data Science Practitioner",
+    "B.E. CS Graduate · 2026",
+    "Behavioural Economics Nerd",
+    "Master's Applicant · Winter 2026",
+  ],
+  desc: "I build systems at the intersection of AI, governance, and human decision-making.",
+  bio: "I build systems at the intersection of AI, governance, and human decision-making.",
+  about: [
+    "My interest lives at the intersection of technology and people management. I came from a biology background in Class 12 — CS was a deliberate pivot, not a default — and finishing my B.E. in Computer Science at NIE Mysuru with a 7.61 CGPA mattered to me precisely because it wasn't the obvious path. I write code to solve problems I can explain to non-engineers, not to impress compilers.",
+    "What drives me is using technology to solve the world's complex problems — the messy, human ones that don't have clean answers. That's why my most meaningful work is Sentinel, a Human-in-the-Loop AI framework for electoral de-duplication published at IEEE ICKECS 2026, and why my 400 hours as an AI/ML intern at Archelos Intelsense Technologies meant just as much for the time I spent running Scrum ceremonies as the de-facto Scrum Master. Tech and people, side by side.",
+    "My history and my future sit on the same path: build with technology, lead the people around it, and point both at problems worth solving. Outside work I run Mind Metric Daily, a faceless YouTube channel on psychology and self-improvement, and read a lot about behavioural economics and decision theory.",
+  ],
+  socials_username: {
+    github: "SUHAS79",
+    linkedin: "suhasu710",
+    twitter: "",
+    telegram: "",
+    leetcode: "",
+  },
+};
