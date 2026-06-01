@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React, { useRef, useEffect, useState, FC } from "react";
+import React, { FC } from "react";
 import { nasalization } from "@/app/fonts";
 import { skillsData } from "@/constant";
 import { SkillCard } from "@/components/Cards";

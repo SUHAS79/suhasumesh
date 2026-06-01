@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { TbHeart, TbHeartFilled } from "react-icons/tb";
 import { LuGithub, LuLinkedin, LuTwitter, LuMail } from "react-icons/lu";
 import { quentine } from "@/app/fonts";

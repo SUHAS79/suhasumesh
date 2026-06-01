@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
 import { RiMenu4Fill, RiCloseLargeFill } from "react-icons/ri";
 import { quentine } from "@/app/fonts";
 import { Button } from "../ui/button";
@@ -13,7 +12,6 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
-  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
