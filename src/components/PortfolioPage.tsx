@@ -5,22 +5,14 @@ import { Navbar, Footer, PreLoader, Background } from "@/components/common";
 import { Hero, About, Skills, Experience, Projects, Contact } from "@/components/sections";
 import dynamic from "next/dynamic";
 
-const Antigravity = dynamic(() => import("@/components/Antigravity"), { ssr: false });
+const Waves = dynamic(() => import("@/components/Waves"), { ssr: false });
 
 export function PortfolioPage() {
   const [loading, setLoading] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => setLoading(false), 1800);
     return () => clearTimeout(t);
-  }, []);
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
   }, []);
 
   if (loading) return <PreLoader />;
@@ -29,27 +21,23 @@ export function PortfolioPage() {
     <div className="min-h-screen relative">
       <Background />
 
-      {/* Antigravity — fixed behind all content, mouse tracked via window events */}
+      {/* Waves — fixed behind all content, responds to mouse/touch via window events */}
       <div
         className="fixed inset-0 pointer-events-none"
         style={{ zIndex: -1 }}
       >
-        <Antigravity
-          count={isMobile ? 60 : 300}
-          magnetRadius={10}
-          ringRadius={10}
-          waveSpeed={0.4}
-          waveAmplitude={1}
-          particleSize={isMobile ? 1.2 : 2}
-          lerpSpeed={0.1}
-          color="#F97316"
-          autoAnimate={false}
-          particleVariance={1}
-          rotationSpeed={0}
-          depthFactor={1}
-          pulseSpeed={3}
-          particleShape="capsule"
-          fieldStrength={10}
+        <Waves
+          lineColor="#F97316"
+          backgroundColor="transparent"
+          waveSpeedX={0.055}
+          waveSpeedY={0.06}
+          waveAmpX={40}
+          waveAmpY={40}
+          friction={0.7}
+          tension={0.02}
+          maxCursorMove={80}
+          xGap={12}
+          yGap={36}
         />
       </div>
       <Navbar />
