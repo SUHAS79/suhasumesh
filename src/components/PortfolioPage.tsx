@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { Navbar, Footer, PreLoader, Background } from "@/components/common";
 import { Hero, About, Skills, Experience, Projects, Contact } from "@/components/sections";
-import { ThemeSwitcher } from "@/components/common/ThemeSwitcher";
 import dynamic from "next/dynamic";
 
 const Antigravity = dynamic(() => import("@/components/Antigravity"), { ssr: false });
@@ -53,7 +52,6 @@ export function PortfolioPage() {
       <Projects />
       <Contact />
       <Footer />
-      <ThemeSwitcher />
     </div>
   );
 }
