@@ -12,7 +12,7 @@ export const selfData = {
   email: "suhasu710@gmail.com",
   resume: "https://github.com/SUHAS79/Resume/raw/main/Suhas_Umesh_PM_CV_FINAL.pdf",
   roles: [
-    "AI/ML Researcher",
+    "Aspiring Project Manager & Scrum Master",
     "Aspiring Product Manager",
     "IEEE Published Author",
     "Human-in-the-Loop Builder",
@@ -21,8 +21,8 @@ export const selfData = {
     "Behavioural Economics Nerd",
     "Master's Applicant · Winter 2026",
   ],
-  desc: "I build systems at the intersection of AI, governance, and human decision-making.",
-  bio: "I build systems at the intersection of AI, governance, and human decision-making.",
+  desc: "Computer Science graduate certified in Agile frameworks, focused on driving sprint velocity and coordinating tech teams.",
+  bio: "Computer Science graduate certified in Agile frameworks, focused on driving sprint velocity and coordinating tech teams.",
   about: [
     "My interest lives at the intersection of technology and people management. I came from a biology background in Class 12 — CS was a deliberate pivot, not a default — and finishing my B.E. in Computer Science at NIE Mysuru with a 7.61 CGPA mattered to me precisely because it wasn't the obvious path. I write code to solve problems I can explain to non-engineers, not to impress compilers.",
     "What drives me is using technology to solve the world's complex problems — the messy, human ones that don't have clean answers. That's why my most meaningful work is Sentinel, a Human-in-the-Loop AI framework for electoral de-duplication published at IEEE ICKECS 2026, and why my 400 hours as an AI/ML intern at Archelos Intelsense Technologies meant just as much for the time I spent running Scrum ceremonies as the de-facto Scrum Master. Tech and people, side by side.",
