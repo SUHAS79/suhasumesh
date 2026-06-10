@@ -20,40 +20,40 @@ body {
 
 @layer base {
 
-  /* ─── DEFAULT — Theme 4 · Charcoal + Orange ─── */
+  /* ─── DEFAULT — Theme 4 · Charcoal + Cyan ─── */
   :root {
     --background: 20 8% 6%;
-    --foreground: 30 10% 93%;
+    --foreground: 38 35% 86%;
     --card: 20 7% 8%;
-    --card-foreground: 30 10% 95%;
+    --card-foreground: 38 35% 86%;
     --popover: 20 7% 7%;
-    --popover-foreground: 30 10% 97%;
-    --primary: 25 92% 58%;
+    --popover-foreground: 38 35% 88%;
+    --primary: 189 94% 43%;
     --primary-foreground: 20 8% 5%;
-    --secondary: 32 88% 66%;
+    --secondary: 189 80% 68%;
     --secondary-foreground: 20 8% 5%;
     --muted: 20 8% 11%;
-    --muted-foreground: 28 12% 50%;
-    --accent: 28 95% 62%;
+    --muted-foreground: 38 15% 60%;
+    --accent: 185 80% 50%;
     --accent-foreground: 20 8% 5%;
     --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 98%;
     --border: 20 10% 14%;
     --input: 20 8% 10%;
-    --ring: 25 92% 58%;
+    --ring: 189 94% 43%;
     --radius: 0.75rem;
     --glass-bg:               hsl(20 10% 7% / 0.90);
     --glass-bg-light:         hsl(20 8% 10% / 0.82);
-    --glass-border:           hsl(25 55% 40% / 0.40);
-    --glass-border-hover:     hsl(25 70% 50% / 0.62);
-    --glass-glow:             0px 0px 28px hsl(25 92% 55% / 0.25);
-    --glass-glow-intense:     0px 0px 44px hsl(25 95% 58% / 0.38);
+    --glass-border:           hsl(189 50% 38% / 0.40);
+    --glass-border-hover:     hsl(189 65% 48% / 0.62);
+    --glass-glow:             0px 0px 28px hsl(189 94% 43% / 0.25);
+    --glass-glow-intense:     0px 0px 44px hsl(189 94% 48% / 0.38);
     --glass-backdrop:         blur(16px) saturate(160%);
     --glass-backdrop-intense: blur(24px) saturate(190%);
-    --glass-shimmer: linear-gradient(110deg, transparent 25%, hsl(25 90% 65% / 0.10) 50%, hsl(35 85% 70% / 0.14) 55%, transparent 75%);
-    --text-glow:              0px 0px 16px hsl(25 92% 60% / 0.45);
+    --glass-shimmer: linear-gradient(110deg, transparent 25%, hsl(189 90% 65% / 0.10) 50%, hsl(195 85% 70% / 0.14) 55%, transparent 75%);
+    --text-glow:              0px 0px 16px hsl(189 94% 50% / 0.45);
     --tracking-normal:        0.05rem;
-    --luxury-hover-glow:      0px 0px 18px hsl(25 92% 55% / 0.35);
+    --luxury-hover-glow:      0px 0px 18px hsl(189 94% 43% / 0.35);
   }
 
   /* ─── THEME 1 — Monochrome (Vercel-inspired) ─── */
@@ -164,40 +164,40 @@ body {
     --luxury-hover-glow:      0px 0px 18px hsl(152 60% 50% / 0.32);
   }
 
-  /* ─── THEME 4 — Charcoal + Orange ─── */
+  /* ─── THEME 4 — Charcoal + Cyan ─── */
   html[data-theme="4"] {
     --background: 20 8% 6%;
-    --foreground: 30 10% 93%;
+    --foreground: 38 35% 86%;
     --card: 20 7% 8%;
-    --card-foreground: 30 10% 95%;
+    --card-foreground: 38 35% 86%;
     --popover: 20 7% 7%;
-    --popover-foreground: 30 10% 97%;
-    --primary: 25 92% 58%;
+    --popover-foreground: 38 35% 88%;
+    --primary: 189 94% 43%;
     --primary-foreground: 20 8% 5%;
-    --secondary: 32 88% 66%;
+    --secondary: 189 80% 68%;
     --secondary-foreground: 20 8% 5%;
     --muted: 20 8% 11%;
-    --muted-foreground: 28 12% 50%;
-    --accent: 28 95% 62%;
+    --muted-foreground: 38 15% 60%;
+    --accent: 185 80% 50%;
     --accent-foreground: 20 8% 5%;
     --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 98%;
     --border: 20 10% 14%;
     --input: 20 8% 10%;
-    --ring: 25 92% 58%;
+    --ring: 189 94% 43%;
     --radius: 0.75rem;
     --glass-bg:               hsl(20 10% 7% / 0.90);
     --glass-bg-light:         hsl(20 8% 10% / 0.82);
-    --glass-border:           hsl(25 55% 40% / 0.40);
-    --glass-border-hover:     hsl(25 70% 50% / 0.62);
-    --glass-glow:             0px 0px 28px hsl(25 92% 55% / 0.25);
-    --glass-glow-intense:     0px 0px 44px hsl(25 95% 58% / 0.38);
+    --glass-border:           hsl(189 50% 38% / 0.40);
+    --glass-border-hover:     hsl(189 65% 48% / 0.62);
+    --glass-glow:             0px 0px 28px hsl(189 94% 43% / 0.25);
+    --glass-glow-intense:     0px 0px 44px hsl(189 94% 48% / 0.38);
     --glass-backdrop:         blur(16px) saturate(160%);
     --glass-backdrop-intense: blur(24px) saturate(190%);
-    --glass-shimmer: linear-gradient(110deg, transparent 25%, hsl(25 90% 65% / 0.10) 50%, hsl(35 85% 70% / 0.14) 55%, transparent 75%);
-    --text-glow:              0px 0px 16px hsl(25 92% 60% / 0.45);
+    --glass-shimmer: linear-gradient(110deg, transparent 25%, hsl(189 90% 65% / 0.10) 50%, hsl(195 85% 70% / 0.14) 55%, transparent 75%);
+    --text-glow:              0px 0px 16px hsl(189 94% 50% / 0.45);
     --tracking-normal:        0.05rem;
-    --luxury-hover-glow:      0px 0px 18px hsl(25 92% 55% / 0.35);
+    --luxury-hover-glow:      0px 0px 18px hsl(189 94% 43% / 0.35);
   }
 
   /* ─── THEME 5 — same as :root (explicit override) ─── */
@@ -234,6 +234,10 @@ body {
     --text-glow:              0px 0px 16px hsl(211 100% 55% / 0.30);
     --tracking-normal:        0.05rem;
     --luxury-hover-glow:      0px 0px 18px hsl(211 100% 52% / 0.22);
+  }
+
+  html {
+    font-size: 18px;
   }
 
   body {
