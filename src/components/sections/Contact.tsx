@@ -87,7 +87,7 @@ const ContactItem: React.FC<ContactItemProps> = ({ icon: Icon, label, value, hre
     <motion.div
       whileHover={{ scale: 1.01 }}
       transition={{ duration: 0.2 }}
-      className="p-4 rounded-xl transition-all duration-300 hover:bg-white/5 group cursor-pointer border border-transparent hover:border-primary/20"
+      className="glass-card p-4 rounded-xl transition-all duration-300 group cursor-pointer"
     >
       <div className="flex items-center space-x-4">
         <div className="p-3 rounded-lg" style={{ backgroundColor: "hsl(var(--primary) / 0.2)" }}>

@@ -56,7 +56,7 @@ export const ContactFormCard = () => {
       <Card
         className="relative overflow-hidden backdrop-blur-xl border transition-all duration-300 h-full flex flex-col shadow-lg hover:shadow-xl"
         style={{
-          background: "hsl(var(--glass-bg))",
+          background: "hsl(var(--card))",
           borderColor: "hsl(var(--glass-border))",
         }}
       >
@@ -73,7 +73,7 @@ export const ContactFormCard = () => {
                 className="w-full px-4 py-3 text-sm rounded-xl backdrop-blur-xl border transition-all duration-200 outline-none focus:ring-2 focus:ring-primary/50 hover:border-primary/30"
                 style={{
                   color: "hsl(var(--foreground))",
-                  background: "hsl(var(--glass-bg))",
+                  background: "hsl(var(--card))",
                   borderColor: "hsl(var(--glass-border))",
                 }}
               />
@@ -87,7 +87,7 @@ export const ContactFormCard = () => {
                 className="w-full px-4 py-3 text-sm rounded-xl backdrop-blur-xl border transition-all duration-200 outline-none focus:ring-2 focus:ring-primary/50 hover:border-primary/30"
                 style={{
                   color: "hsl(var(--foreground))",
-                  background: "hsl(var(--glass-bg))",
+                  background: "hsl(var(--card))",
                   borderColor: "hsl(var(--glass-border))",
                 }}
               />
