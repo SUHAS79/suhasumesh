@@ -4,8 +4,8 @@ export const projectsData = [
     description:
       "A Human-in-the-Loop AI framework for detecting and resolving duplicate voter registrations in large electoral datasets. Combines ML-based de-duplication with a human review layer to ensure fairness and auditability at scale. Published at IEEE ICKECS 2026 (Paper ID 1086, graded 89/100).",
     github_link: "https://github.com/suhas79/sentinel",
-    demo: "",
-    certificate: "https://raw.githubusercontent.com/SUHAS79/Resume/main/ICKECS%20Certificate%20.pdf",
+    demo: "https://ieeexplore.ieee.org/document/11527542",
+    demoLabel: "IEEE",
     tech: ["Python", "Scikit-learn", "Pandas", "RapidFuzz", "SQLite", "Streamlit"],
   },
   {
@@ -41,11 +41,11 @@ export const projectsData = [
     tech: ["FastAPI", "Python", "LLM", "Ollama", "HTML", "CSS"],
   },
   {
-    name: "Mind Metric Daily",
+    name: "School Cashless Payment System",
     description:
-      "A faceless YouTube channel exploring behavioural psychology and self-improvement through research-backed content. Covers cognitive biases, decision theory, and mental models. Scripts, research, and production handled independently end-to-end.",
-    github_link: "",
-    demo: "https://www.youtube.com/@MindMetricDaily",
-    tech: ["Content Research", "Scriptwriting", "Canva", "Video Editing"],
+      "A full-stack cashless payment platform for schools featuring QR code-based transactions, a student/parent user portal, and an admin portal for managing accounts, transactions, and timetables — eliminating the need for physical cash on campus.",
+    github_link: "https://github.com/SUHAS79/Minor-Project",
+    demo: "",
+    tech: ["HTML", "CSS", "JavaScript", "QR Code", "Admin Portal"],
   },
 ];

@@ -57,7 +57,8 @@ export const Projects = () => {
               desc={proj.description}
               github={proj.github_link}
               demo={proj.demo}
-              certificate={"certificate" in proj ? proj.certificate : undefined}
+              demoLabel={"demoLabel" in proj ? (proj as {demoLabel: string}).demoLabel : "Demo"}
+              certificate={"certificate" in proj ? (proj as {certificate: string}).certificate : undefined}
               tech={proj.tech}
             />
           ))}
