@@ -4,9 +4,22 @@ import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { useState } from "react";
 import { BsSend, BsSendCheck } from "react-icons/bs";
+import { FiChevronDown } from "react-icons/fi";
 import { Card } from "../ui/card";
 
 const viewportConfig = { once: true, margin: "-100px" as const };
+
+// Native <option> elements ignore the parent <select> colors in most browsers,
+// so we set a solid dark background + light text explicitly on each one.
+const optionStyle = { backgroundColor: "#161412", color: "#f5f5f5" } as const;
+
+const CONTACT_REASONS = [
+  { value: "General inquiries", label: "General Inquiries" },
+  { value: "Project inquiries", label: "Project Inquiries" },
+  { value: "Collaboration request", label: "Collaboration Request" },
+  { value: "Internship/Job opportunity", label: "Internship / Job Opportunity" },
+  { value: "Feedback/Question", label: "Feedback / Question" },
+];
 
 export const ContactFormCard = () => {
   const [isSending, setIsSending] = useState(false);
@@ -93,24 +106,30 @@ export const ContactFormCard = () => {
               />
             </div>
 
-            <select
-              required
-              name="reasonToContact"
-              onChange={handleChange}
-              value={formValues.reasonToContact}
-              className="w-full px-4 py-3 text-sm rounded-xl backdrop-blur-xl border transition-all duration-200 outline-none focus:ring-2 focus:ring-primary/50 hover:border-primary/30"
-              style={{
-                color: "hsl(var(--foreground))",
-                background: "hsl(var(--glass-bg))",
-                borderColor: "hsl(var(--glass-border))",
-              }}
-            >
-              <option value="General inquiries">General Inquiries</option>
-              <option value="Project inquiries">Project Inquiries</option>
-              <option value="Collaboration request">Collaboration Request</option>
-              <option value="Internship/Job opportunity">Internship / Job Opportunity</option>
-              <option value="Feedback/Question">Feedback / Question</option>
-            </select>
+            <div className="relative">
+              <select
+                required
+                name="reasonToContact"
+                onChange={handleChange}
+                value={formValues.reasonToContact}
+                className="w-full appearance-none cursor-pointer px-4 py-3 pr-11 text-sm rounded-xl backdrop-blur-xl border transition-all duration-200 outline-none focus:ring-2 focus:ring-primary/50 hover:border-primary/30"
+                style={{
+                  color: "hsl(var(--foreground))",
+                  background: "hsl(var(--card))",
+                  borderColor: "hsl(var(--glass-border))",
+                }}
+              >
+                {CONTACT_REASONS.map((r) => (
+                  <option key={r.value} value={r.value} style={optionStyle}>
+                    {r.label}
+                  </option>
+                ))}
+              </select>
+              <FiChevronDown
+                className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4"
+                style={{ color: "hsl(var(--primary))" }}
+              />
+            </div>
 
             <textarea
               placeholder="Your Message"
