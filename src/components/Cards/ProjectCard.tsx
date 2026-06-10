@@ -13,6 +13,7 @@ interface ProjectCardProps {
   desc: string;
   github: string;
   demo?: string;
+  demoLabel?: string;
   certificate?: string;
   tech: string[];
 }
@@ -23,6 +24,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   desc,
   github,
   demo,
+  demoLabel = "Demo",
   certificate,
   tech,
 }) => {
@@ -128,7 +130,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
                 >
                   <Link href={demo} target="_blank" rel="noopener noreferrer">
                     <FiExternalLink className="w-4 h-4 mr-2" />
-                    Demo
+                    {demoLabel}
                   </Link>
                 </Button>
               </motion.div>
