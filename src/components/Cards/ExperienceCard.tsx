@@ -45,9 +45,9 @@ export const ExperienceCard: FC<ExperienceCardProps> = ({
       {/* Content */}
       <div className="flex-1">
         <Card
-          className="relative overflow-hidden backdrop-blur-xl border transition-all duration-300 shadow-lg hover:shadow-xl"
+          className="glass-card relative overflow-hidden border-0 shadow-lg rounded-2xl"
           style={{
-            background: "hsl(var(--glass-bg))",
+            background: "hsl(var(--card))",
             borderColor: "hsl(var(--glass-border))",
           }}
         >
