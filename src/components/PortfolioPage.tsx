@@ -9,10 +9,18 @@ const Antigravity = dynamic(() => import("@/components/Antigravity"), { ssr: fal
 
 export function PortfolioPage() {
   const [loading, setLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => setLoading(false), 1800);
     return () => clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
   }, []);
 
   if (loading) return <PreLoader />;
@@ -27,12 +35,12 @@ export function PortfolioPage() {
         style={{ zIndex: -1 }}
       >
         <Antigravity
-          count={300}
+          count={isMobile ? 60 : 300}
           magnetRadius={10}
           ringRadius={10}
           waveSpeed={0.4}
           waveAmplitude={1}
-          particleSize={2}
+          particleSize={isMobile ? 1.2 : 2}
           lerpSpeed={0.1}
           color="#F97316"
           autoAnimate={false}

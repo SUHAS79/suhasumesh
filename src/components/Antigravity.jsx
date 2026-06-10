@@ -33,8 +33,19 @@ const AntigravityInner = ({
       globalMouse.current.y = -((e.clientY / window.innerHeight) * 2 - 1);
       lastMouseMoveTime.current = Date.now();
     };
+    const onTouch = (e) => {
+      const touch = e.touches[0];
+      if (!touch) return;
+      globalMouse.current.x = (touch.clientX / window.innerWidth) * 2 - 1;
+      globalMouse.current.y = -((touch.clientY / window.innerHeight) * 2 - 1);
+      lastMouseMoveTime.current = Date.now();
+    };
     window.addEventListener('mousemove', onMove);
-    return () => window.removeEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', onTouch, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('touchmove', onTouch);
+    };
   }, []);
 
   const virtualMouse = useRef({ x: 0, y: 0 });
