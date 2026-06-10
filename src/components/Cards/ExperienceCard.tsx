@@ -76,7 +76,7 @@ export const ExperienceCard: FC<ExperienceCardProps> = ({
               {description.map((point, i) => (
                 <li
                   key={i}
-                  className="text-xs font-inter flex items-start"
+                  className="text-sm font-inter flex items-start"
                   style={{ color: "hsl(var(--foreground) / 0.8)" }}
                 >
                   <span
@@ -93,7 +93,7 @@ export const ExperienceCard: FC<ExperienceCardProps> = ({
                 <Badge
                   key={i}
                   variant="outline"
-                  className="text-xs font-mono px-3 py-1 hover:bg-primary/10 transition-colors duration-200"
+                  className="text-sm font-mono px-3 py-1 hover:bg-primary/10 transition-colors duration-200"
                   style={{
                     borderColor: "hsl(var(--primary) / 0.3)",
                     color: "hsl(var(--foreground) / 0.9)",
