@@ -4,24 +4,24 @@ import { inter, mono, nasalization, quentine } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Suhas Umesh | CS Graduate · AI/ML Researcher · Aspiring PM",
+  title: "Suhas Umesh | IT Project Management · M.Sc. Student, WHZ Zwickau",
   description:
-    "CS Graduate from NIE Mysuru. AI/ML Researcher, IEEE published author, and aspiring Product Manager. Building systems at the intersection of AI, governance, and human decision-making.",
+    "IT project management and Agile delivery. M.Sc. Management and Information Technology at WHZ Zwickau, Germany. IEEE-published author, certified in Scrum (IBM) and project management (Google). Open to Werkstudent roles — 20 h/week.",
   authors: [{ name: "Suhas Umesh" }],
   creator: "Suhas Umesh",
   keywords: [
-    "Suhas Umesh", "AI/ML", "Product Manager", "Data Science",
-    "IEEE", "Sentinel", "NIE Mysuru", "Human-in-the-Loop", "Portfolio",
+    "Suhas Umesh", "IT Project Management", "Werkstudent", "Working Student",
+    "Scrum", "Agile", "Zwickau", "WHZ", "Germany", "IEEE", "Sentinel", "Portfolio",
   ],
   openGraph: {
-    title: "Suhas Umesh | CS Graduate · AI/ML Researcher · Aspiring PM",
-    description: "Building systems at the intersection of AI, governance, and human decision-making.",
+    title: "Suhas Umesh | IT Project Management · M.Sc. Student, WHZ Zwickau",
+    description: "Agile delivery and IT project management. Based in Zwickau, Germany. Open to Werkstudent roles.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Suhas Umesh | CS Graduate · AI/ML Researcher",
-    description: "IEEE published researcher. Aspiring PM. Building at the intersection of AI and governance.",
+    title: "Suhas Umesh | IT Project Management · WHZ Zwickau",
+    description: "Agile delivery and IT project management. Based in Zwickau, Germany. Open to Werkstudent roles.",
   },
 };
 

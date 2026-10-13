@@ -63,6 +63,23 @@ export const Hero = () => {
             >
               {selfData.bio}
             </motion.p>
+
+            <motion.div variants={itemVariants}>
+              <span
+                className="inline-flex items-start gap-2 rounded-full px-4 py-2 text-sm max-w-2xl"
+                style={{
+                  background: "hsl(var(--primary) / 0.08)",
+                  border: "1px solid hsl(var(--primary) / 0.28)",
+                  color: "hsl(var(--foreground) / 0.85)",
+                }}
+              >
+                <span
+                  className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0"
+                  style={{ background: "hsl(var(--primary))" }}
+                />
+                {selfData.availability}
+              </span>
+            </motion.div>
           </div>
 
           <motion.div

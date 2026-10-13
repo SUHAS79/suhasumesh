@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { TbHeart, TbHeartFilled } from "react-icons/tb";
-import { LuGithub, LuLinkedin, LuTwitter, LuMail } from "react-icons/lu";
+import { LuGithub, LuLinkedin, LuMail } from "react-icons/lu";
 import { quentine } from "@/app/fonts";
 import { selfData } from "@/constant";
 
@@ -19,11 +19,6 @@ export const Footer = () => {
       icon: LuLinkedin,
       href: `https://linkedin.com/in/${selfData.socials_username.linkedin}`,
       label: "LinkedIn",
-    },
-    {
-      icon: LuTwitter,
-      href: `https://twitter.com/${selfData.socials_username.twitter}`,
-      label: "Twitter",
     },
     {
       icon: LuMail,

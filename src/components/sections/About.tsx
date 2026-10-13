@@ -120,9 +120,10 @@ export const About = () => {
                 className="text-[0.9375rem] leading-relaxed"
                 style={{ color: "hsl(var(--foreground) / 0.88)" }}
               >
-                I am a tech-fluent Project Coordinator and Scrum Master with a
-                B.E. in Computer Science. I bridge the gap between technical
-                engineering teams and project delivery goals.
+                I am a tech-fluent project coordinator and Scrum Master with a
+                B.E. in Computer Science, now reading for an M.Sc. in Management
+                and Information Technology at WHZ Zwickau. I bridge the gap
+                between technical engineering teams and project delivery goals.
               </p>
             </motion.div>
 
@@ -193,7 +194,10 @@ export const About = () => {
                   grooming, risk tracking, and keeping cross-functional teams
                   highly efficient. Whether leading developer sprints or drawing
                   on my background in competitive team leadership, my focus is
-                  always on execution.
+                  always on execution. I am based in Zwickau and open to
+                  Werkstudent and internship roles in Germany — my student visa
+                  permits 20 hours a week during semester, so no sponsorship is
+                  needed.
                 </p>
               </div>
 
