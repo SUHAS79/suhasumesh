@@ -1,6 +1,6 @@
 export const experienceData = [
   {
-    role: "AI/ML Intern",
+    role: "Neural Intelligence & Data Science Intern",
     company: "Archelos Intelsense Technologies",
     year: "February 2025 – May 2025",
     description: [

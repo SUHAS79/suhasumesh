@@ -103,7 +103,7 @@ export const Navbar = () => {
               className="w-full border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-200"
             >
               <a
-                href="/resume.pdf"
+                href={selfData.resume}
                 download
                 onClick={() => setIsMenuOpen(false)}
                 className="flex items-center justify-center"
