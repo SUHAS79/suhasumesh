@@ -22,10 +22,11 @@ body {
 
   /* ─── DEFAULT — Dark + dynamic accent (hue/sat/lightness driven) ─── */
   :root {
-    /* Accent hue + saturation + lightness — swapped at runtime by the theme selector */
-    --accent-h: 82;
-    --accent-s: 80%;
-    --accent-l: 50%;
+    /* Accent hue + saturation + lightness — fixed to white. The runtime theme
+       selector was removed; change these three values to restyle the accent. */
+    --accent-h: 0;
+    --accent-s: 0%;
+    --accent-l: 96%;
 
     --background: 20 8% 6%;
     --foreground: 0 0% 98%;
