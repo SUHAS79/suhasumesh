@@ -3,9 +3,10 @@
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { useState } from "react";
-import { BsSend, BsSendCheck } from "react-icons/bs";
+import { BsSend } from "react-icons/bs";
 import { FiChevronDown } from "react-icons/fi";
 import { Card } from "../ui/card";
+import { selfData } from "@/constant";
 
 const viewportConfig = { once: true, margin: "-100px" as const };
 
@@ -22,8 +23,6 @@ const CONTACT_REASONS = [
 ];
 
 export const ContactFormCard = () => {
-  const [isSending, setIsSending] = useState(false);
-  const [isSent, setIsSent] = useState(false);
   const [formValues, setFormValues] = useState({
     senderName: "",
     senderEmail: "",
@@ -37,24 +36,22 @@ export const ContactFormCard = () => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // There is no backend. Rather than pretend a message was delivered, this
+  // hands the composed message to the visitor's own mail client, so the
+  // message really does reach the inbox.
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSending(true);
 
-    // Simulate sending (no backend in local dev)
-    await new Promise((resolve) => setTimeout(resolve, 1200));
+    const subject = `${formValues.reasonToContact} — ${formValues.senderName}`;
+    const body = `${formValues.senderMsg}\n\n—\n${formValues.senderName}\n${formValues.senderEmail}`;
 
-    toast.success("Message sent! I'll get back to you soon.");
-    setIsSent(true);
-    setFormValues({
-      senderName: "",
-      senderEmail: "",
-      reasonToContact: "General inquiries",
-      senderMsg: "",
+    window.location.href = `mailto:${selfData.email}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+
+    toast.info("Opening your email app…", {
+      description: `If nothing opens, write to ${selfData.email} directly.`,
     });
-    setIsSending(false);
-
-    setTimeout(() => setIsSent(false), 3000);
   };
 
   return (
@@ -148,33 +145,30 @@ export const ContactFormCard = () => {
 
             <motion.button
               type="submit"
-              disabled={isSending}
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.15 }}
-              className="w-full btn-primary px-6 py-3 rounded-xl font-medium text-base flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full btn-primary px-6 py-3 rounded-xl font-medium text-base flex items-center justify-center gap-2"
             >
-              {isSending ? (
-                <>
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
-                    className="w-5 h-5 border-2 border-current border-t-transparent rounded-full"
-                  />
-                  <span>Sending...</span>
-                </>
-              ) : isSent ? (
-                <>
-                  <BsSendCheck className="w-5 h-5" />
-                  <span>Sent!</span>
-                </>
-              ) : (
-                <>
-                  <BsSend className="w-5 h-5" />
-                  Send Message
-                </>
-              )}
+              <BsSend className="w-5 h-5" />
+              Compose Email
             </motion.button>
+
+            <p
+              className="text-xs text-center"
+              style={{ color: "hsl(var(--foreground) / 0.55)" }}
+            >
+              This opens your own email app with the message ready to send. You
+              can also write to{" "}
+              <a
+                href={`mailto:${selfData.email}`}
+                className="underline underline-offset-2"
+                style={{ color: "hsl(var(--primary))" }}
+              >
+                {selfData.email}
+              </a>
+              .
+            </p>
           </form>
         </div>
       </Card>

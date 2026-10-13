@@ -10,7 +10,8 @@ export const selfData = {
     country: "Germany",
   },
   email: "suhasu710@gmail.com",
-  resume: "https://github.com/SUHAS79/Resume/raw/main/Suhas_Umesh_PM_CV_FINAL.pdf",
+  resume:
+    "https://github.com/SUHAS79/Resume/raw/main/SUHAS%20UMESH%20GERMAN%20CV.pdf",
   availability:
     "Open to Werkstudent and internship roles in Germany — 20 h/week during semester. Student visa already in place; no sponsorship required.",
   roles: [
