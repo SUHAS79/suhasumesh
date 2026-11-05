@@ -37,21 +37,38 @@ export const ContactFormCard = () => {
   };
 
   // There is no backend. Rather than pretend a message was delivered, this
-  // hands the composed message to the visitor's own mail client, so the
+  // opens Gmail's compose window in a new tab, already addressed, so the
   // message really does reach the inbox.
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
+  const composed = () => {
     const subject = `${formValues.reasonToContact} — ${formValues.senderName}`;
     const body = `${formValues.senderMsg}\n\n—\n${formValues.senderName}\n${formValues.senderEmail}`;
+    return { subject, body };
+  };
 
-    window.location.href = `mailto:${selfData.email}?subject=${encodeURIComponent(
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const { subject, body } = composed();
+
+    window.open(
+      `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+        selfData.email
+      )}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+
+    toast.info("Opening Gmail…", {
+      description: `Not a Gmail user? Write to ${selfData.email} from any mail app.`,
+    });
+  };
+
+  // Fallback for anyone not on Gmail — hands the same message to whatever
+  // mail client the visitor actually uses.
+  const mailtoHref = () => {
+    const { subject, body } = composed();
+    return `mailto:${selfData.email}?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
-
-    toast.info("Opening your email app…", {
-      description: `If nothing opens, write to ${selfData.email} directly.`,
-    });
   };
 
   return (
@@ -151,15 +168,22 @@ export const ContactFormCard = () => {
               className="w-full btn-primary px-6 py-3 rounded-xl font-medium text-base flex items-center justify-center gap-2"
             >
               <BsSend className="w-5 h-5" />
-              Compose Email
+              Send via Gmail
             </motion.button>
 
             <p
               className="text-xs text-center"
               style={{ color: "hsl(var(--foreground) / 0.55)" }}
             >
-              This opens your own email app with the message ready to send. You
-              can also write to{" "}
+              Opens Gmail with the message ready to send. Not on Gmail?{" "}
+              <a
+                href={mailtoHref()}
+                className="underline underline-offset-2"
+                style={{ color: "hsl(var(--primary))" }}
+              >
+                Use your own mail app
+              </a>{" "}
+              or write to{" "}
               <a
                 href={`mailto:${selfData.email}`}
                 className="underline underline-offset-2"
