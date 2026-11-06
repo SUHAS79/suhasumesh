@@ -10,6 +10,7 @@ export const experienceData = [
       "Documented model performance metrics and presented findings to the internal team in structured weekly reviews.",
     ],
     technologies: ["Python", "Scikit-learn", "Pandas", "NumPy", "Git", "Jira"],
+    certificate: "/certificates/Suhas_Umesh_Archelos_Internship.png",
   },
   {
     role: "Data Science Intern",
@@ -22,5 +23,6 @@ export const experienceData = [
       "Assisted in building a basic predictive model for customer segmentation using Python.",
     ],
     technologies: ["Python", "Pandas", "Matplotlib", "MySQL", "Jupyter Notebook"],
+    certificate: "/certificates/Suhas_Umesh_Rinex_Internship.png",
   },
 ];

@@ -1,5 +1,6 @@
 import { FC, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { LuFileCheck } from "react-icons/lu";
 import { Card } from "../ui/card";
 import { Badge } from "../ui/badge";
 
@@ -9,6 +10,7 @@ interface ExperienceCardProps {
   description: string[];
   company: string;
   technologies: string[];
+  certificate?: string;
   index?: number;
 }
 
@@ -18,6 +20,7 @@ export const ExperienceCard: FC<ExperienceCardProps> = ({
   description,
   company,
   technologies,
+  certificate,
   index = 0,
 }) => {
   const ref = useRef(null);
@@ -105,6 +108,23 @@ export const ExperienceCard: FC<ExperienceCardProps> = ({
                 </Badge>
               ))}
             </div>
+
+            {certificate && (
+              <a
+                href={certificate}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors duration-200"
+                style={{
+                  background: "hsl(var(--primary) / 0.08)",
+                  border: "1px solid hsl(var(--primary) / 0.28)",
+                  color: "hsl(var(--primary))",
+                }}
+              >
+                <LuFileCheck className="w-3.5 h-3.5" aria-hidden="true" />
+                View certificate
+              </a>
+            )}
           </div>
         </Card>
       </div>

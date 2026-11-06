@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { IoLocationOutline, IoMailOutline } from "react-icons/io5";
 import { IconType } from "react-icons";
 import { selfData } from "@/constant";
+import { gmailComposeUrl } from "@/lib/compose";
 import { nasalization } from "@/app/fonts";
 import { ContactFormCard, ContactSocials } from "@/components/Cards";
 
@@ -105,7 +106,12 @@ const ContactItem: React.FC<ContactItemProps> = ({ icon: Icon, label, value, hre
 
   if (href) {
     return (
-      <Link href={href} className="block">
+      <Link
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
+      >
         {content}
       </Link>
     );
@@ -120,7 +126,10 @@ const ContactList = () => (
       icon={IoMailOutline}
       label="Email"
       value={selfData.email}
-      href={`mailto:${selfData.email}`}
+      href={gmailComposeUrl(
+        `Hello ${selfData.first_name}`,
+        `Hi ${selfData.first_name},\n\n`
+      )}
     />
     <ContactItem
       icon={IoLocationOutline}

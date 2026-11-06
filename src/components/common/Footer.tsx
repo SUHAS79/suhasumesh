@@ -5,6 +5,7 @@ import { TbHeart, TbHeartFilled } from "react-icons/tb";
 import { LuGithub, LuLinkedin, LuMail } from "react-icons/lu";
 import { quentine } from "@/app/fonts";
 import { selfData } from "@/constant";
+import { gmailComposeUrl } from "@/lib/compose";
 
 export const Footer = () => {
   const [isHeartFilled, setIsHeartFilled] = useState(false);
@@ -22,7 +23,12 @@ export const Footer = () => {
     },
     {
       icon: LuMail,
-      href: `mailto:${selfData.email}`,
+      // Gmail compose rather than mailto:, which does nothing on a machine
+      // with no mail client configured.
+      href: gmailComposeUrl(
+        `Hello ${selfData.first_name}`,
+        `Hi ${selfData.first_name},\n\n`
+      ),
       label: "Email",
     },
   ];

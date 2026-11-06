@@ -75,6 +75,7 @@ export function Experience() {
                 description={exp.description}
                 company={exp.company}
                 technologies={exp.technologies}
+                certificate={exp.certificate}
                 index={index}
               />
             ))}
