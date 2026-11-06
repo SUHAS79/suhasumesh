@@ -45,17 +45,31 @@ export const ContactFormCard = () => {
     return { subject, body };
   };
 
+  const gmailHref = () => {
+    const { subject, body } = composed();
+    const params = new URLSearchParams({
+      view: "cm",
+      fs: "1",
+      to: selfData.email,
+      su: subject,
+      body,
+    });
+    return `https://mail.google.com/mail/?${params.toString()}`;
+  };
+
+  // A real anchor click, not window.open. window.open with a features string
+  // gets treated as a popup request by some browsers and lands on a blank
+  // tab; a synthesised link click inside the submit gesture always navigates.
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const { subject, body } = composed();
 
-    window.open(
-      `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
-        selfData.email
-      )}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
-      "_blank",
-      "noopener,noreferrer"
-    );
+    const a = document.createElement("a");
+    a.href = gmailHref();
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 
     toast.info("Opening Gmail…", {
       description: `Not a Gmail user? Write to ${selfData.email} from any mail app.`,
