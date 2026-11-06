@@ -146,7 +146,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({
                 <Button
                   size="sm"
                   variant="outline"
-                  className="w-full transition-colors duration-200 font-mono text-xs border-yellow-500/40 hover:border-yellow-400 hover:bg-yellow-500/10 text-yellow-400"
+                  className="w-full transition-colors duration-200 font-mono text-xs border-primary/30 hover:border-primary hover:bg-primary/10"
                   asChild
                 >
                   <a href={certificate} target="_blank" rel="noopener noreferrer">

@@ -1,11 +1,22 @@
-export const projectsData = [
+export type Project = {
+  name: string;
+  description: string;
+  github_link: string;
+  demo?: string;
+  demoLabel?: string;
+  certificate?: string;
+  tech: string[];
+};
+
+export const projectsData: Project[] = [
   {
     name: "Sentinel",
     description:
-      "A Human-in-the-Loop AI framework for detecting and resolving duplicate voter registrations in large electoral datasets. Combines ML-based de-duplication with a human review layer to ensure fairness and auditability at scale. Published at IEEE ICKECS 2026 (Paper ID 1086) and presented at the conference.",
+      "A Human-in-the-Loop AI framework for detecting and resolving duplicate voter registrations in large electoral datasets. Combines ML-based de-duplication with a human review layer to ensure fairness and auditability at scale. Published at IEEE ICKECS 2026 (Paper ID 1086) and presented at the conference in April 2026.",
     github_link: "https://github.com/suhas79/sentinel",
     demo: "https://ieeexplore.ieee.org/document/11527542",
     demoLabel: "IEEE",
+    certificate: "/certificates/Suhas_Umesh_ICKECS_2026_Presentation.pdf",
     tech: ["Python", "Scikit-learn", "Pandas", "RapidFuzz", "SQLite", "Streamlit"],
   },
   {
