@@ -26,7 +26,7 @@ export function PortfolioPage() {
   const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
-    const t = setTimeout(() => setLoading(false), 1800);
+    const t = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(t);
   }, []);
 
