@@ -25,8 +25,8 @@ export const selfData = {
     "B.E. Computer Science · 2026",
     "Behavioural Economics Nerd",
   ],
-  desc: "M.Sc. student in Management and Information Technology at WHZ Zwickau, with a B.E. in Computer Science and an IEEE-published paper behind me. Certified in Scrum (IBM) and project management (Google).",
-  bio: "M.Sc. student in Management and Information Technology at WHZ Zwickau, with a B.E. in Computer Science and an IEEE-published paper behind me. Certified in Scrum (IBM) and project management (Google).",
+  desc: "M.Sc. student in Management and Information Technology at the University of Applied Sciences Zwickau (WHZ), with a B.E. in Computer Science and an IEEE-published paper behind me. Certified in Scrum (IBM) and project management (Google).",
+  bio: "M.Sc. student in Management and Information Technology at the University of Applied Sciences Zwickau (WHZ), with a B.E. in Computer Science and an IEEE-published paper behind me. Certified in Scrum (IBM) and project management (Google).",
   about: [
     "My interest lives at the intersection of technology and people management. I came from a biology background in Class 12 — CS was a deliberate pivot, not a default — and finishing my B.E. in Computer Science at NIE Mysuru mattered to me precisely because it wasn't the obvious path. I work on problems I can explain to non-engineers.",
     "I am now based in Zwickau, Germany, reading for an M.Sc. in Management and Information Technology at Westsächsische Hochschule Zwickau — a double-degree programme with a semester abroad at a partner university. The work I am proudest of is Sentinel, a Human-in-the-Loop AI framework for electoral de-duplication published at IEEE ICKECS 2026, where I led a four-person team end to end. My 400 hours at Archelos Intelsense Technologies mattered just as much for the sprints I ran as de-facto Scrum Master as for the models I built.",

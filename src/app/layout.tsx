@@ -4,9 +4,9 @@ import { inter, mono, nasalization, quentine } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Suhas Umesh | IT Project Management · M.Sc. Student, WHZ Zwickau",
+  title: "Suhas Umesh | IT Project Management · M.Sc. Student, UAS Zwickau",
   description:
-    "IT project management and Agile delivery. M.Sc. Management and Information Technology at WHZ Zwickau, Germany. IEEE-published author, certified in Scrum (IBM) and project management (Google). Open to Werkstudent roles — 20 h/week.",
+    "IT project management and Agile delivery. M.Sc. Management and Information Technology at the University of Applied Sciences Zwickau (WHZ), Germany. IEEE-published author, certified in Scrum (IBM) and project management (Google). Open to Werkstudent roles — 20 h/week.",
   authors: [{ name: "Suhas Umesh" }],
   creator: "Suhas Umesh",
   keywords: [
@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     "Scrum", "Agile", "Zwickau", "WHZ", "Germany", "IEEE", "Sentinel", "Portfolio",
   ],
   openGraph: {
-    title: "Suhas Umesh | IT Project Management · M.Sc. Student, WHZ Zwickau",
+    title: "Suhas Umesh | IT Project Management · M.Sc. Student, UAS Zwickau",
     description: "Agile delivery and IT project management. Based in Zwickau, Germany. Open to Werkstudent roles.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Suhas Umesh | IT Project Management · WHZ Zwickau",
+    title: "Suhas Umesh | IT Project Management · UAS Zwickau",
     description: "Agile delivery and IT project management. Based in Zwickau, Germany. Open to Werkstudent roles.",
   },
 };

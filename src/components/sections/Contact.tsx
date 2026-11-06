@@ -135,6 +135,9 @@ const ContactList = () => (
       icon={IoLocationOutline}
       label="Location"
       value={`${selfData.current_location.city}, ${selfData.current_location.state}, ${selfData.current_location.country}`}
+      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+        `${selfData.current_location.city}, ${selfData.current_location.state}, ${selfData.current_location.country}`
+      )}`}
     />
   </div>
 );

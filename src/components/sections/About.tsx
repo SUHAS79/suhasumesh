@@ -122,7 +122,8 @@ export const About = () => {
               >
                 I am a tech-fluent project coordinator and Scrum Master with a
                 B.E. in Computer Science, now reading for an M.Sc. in Management
-                and Information Technology at WHZ Zwickau. I bridge the gap
+                and Information Technology at the University of Applied Sciences
+                Zwickau (WHZ). I bridge the gap
                 between technical engineering teams and project delivery goals.
               </p>
             </motion.div>
@@ -214,7 +215,7 @@ export const About = () => {
                     textShadow: "var(--text-glow)",
                   }}
                 >
-                  Let&apos;s build something organized.
+                  Let&apos;s build something special.
                 </p>
               </div>
             </motion.div>

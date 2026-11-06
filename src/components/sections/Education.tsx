@@ -188,6 +188,12 @@ export function Education() {
                   >
                     {item.issuer}
                   </p>
+                  <p
+                    className="text-sm mt-2 leading-relaxed"
+                    style={{ color: "hsl(var(--foreground) / 0.65)" }}
+                  >
+                    {item.description}
+                  </p>
                   <CertificateLink href={item.certificate} />
                 </div>
 

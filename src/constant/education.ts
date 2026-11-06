@@ -77,6 +77,9 @@ export const credentialsData = [
   {
     title: "NCC Navy 'A' Certificate",
     issuer: "National Cadet Corps · Ministry of Defence, Government of India",
+    // Spelled out because the NCC means nothing to most people outside India.
+    description:
+      "The National Cadet Corps is India's military youth organisation, run by the Ministry of Defence and open to school and college students alongside their studies. The naval wing trains cadets in drill, seamanship, navigation and small-team leadership over two years, ending in a graded examination.",
     detail: "Grade A · Cadet of the Year",
     year: "2019",
     certificate: "/certificates/Suhas_Umesh_NCC_Navy_A.pdf",
