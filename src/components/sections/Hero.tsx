@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { selfData } from "@/constant";
+import { gmailComposeUrl } from "@/lib/gmail";
 import { quentine, mono } from "@/app/fonts";
 
 const containerVariants = {
@@ -110,12 +111,19 @@ export const Hero = () => {
               <Button
                 variant="outline"
                 size="lg"
+                asChild
                 className="border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-200"
-                onClick={() => {
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                }}
               >
-                Get In Touch
+                <a
+                  href={gmailComposeUrl(
+                    `Hello ${selfData.first_name}`,
+                    `Hi ${selfData.first_name},\n\n`
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get In Touch
+                </a>
               </Button>
             </motion.div>
           </motion.div>

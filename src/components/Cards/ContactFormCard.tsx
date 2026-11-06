@@ -7,6 +7,7 @@ import { BsSend } from "react-icons/bs";
 import { FiChevronDown } from "react-icons/fi";
 import { Card } from "../ui/card";
 import { selfData } from "@/constant";
+import { gmailComposeUrl, mailtoUrl } from "@/lib/gmail";
 
 const viewportConfig = { once: true, margin: "-100px" as const };
 
@@ -45,26 +46,14 @@ export const ContactFormCard = () => {
     return { subject, body };
   };
 
-  const gmailHref = () => {
-    const { subject, body } = composed();
-    const params = new URLSearchParams({
-      view: "cm",
-      fs: "1",
-      to: selfData.email,
-      su: subject,
-      body,
-    });
-    return `https://mail.google.com/mail/?${params.toString()}`;
-  };
-
-  // A real anchor click, not window.open. window.open with a features string
-  // gets treated as a popup request by some browsers and lands on a blank
-  // tab; a synthesised link click inside the submit gesture always navigates.
+  // A real anchor click, not window.open — window.open with a features string
+  // is treated as a popup request by some browsers and lands on a blank tab.
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const { subject, body } = composed();
 
     const a = document.createElement("a");
-    a.href = gmailHref();
+    a.href = gmailComposeUrl(subject, body);
     a.target = "_blank";
     a.rel = "noopener noreferrer";
     document.body.appendChild(a);
@@ -80,9 +69,7 @@ export const ContactFormCard = () => {
   // mail client the visitor actually uses.
   const mailtoHref = () => {
     const { subject, body } = composed();
-    return `mailto:${selfData.email}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
+    return mailtoUrl(subject, body);
   };
 
   return (
