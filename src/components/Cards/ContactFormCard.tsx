@@ -7,7 +7,7 @@ import { BsSend } from "react-icons/bs";
 import { FiChevronDown } from "react-icons/fi";
 import { Card } from "../ui/card";
 import { selfData } from "@/constant";
-import { gmailComposeUrl, mailtoUrl } from "@/lib/gmail";
+import { gmailComposeUrl, outlookComposeUrl } from "@/lib/compose";
 
 const viewportConfig = { once: true, margin: "-100px" as const };
 
@@ -48,28 +48,40 @@ export const ContactFormCard = () => {
 
   // A real anchor click, not window.open — window.open with a features string
   // is treated as a popup request by some browsers and lands on a blank tab.
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const { subject, body } = composed();
-
+  const openInNewTab = (href: string) => {
     const a = document.createElement("a");
-    a.href = gmailComposeUrl(subject, body);
+    a.href = href;
     a.target = "_blank";
     a.rel = "noopener noreferrer";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const { subject, body } = composed();
+    openInNewTab(gmailComposeUrl(subject, body));
 
     toast.info("Opening Gmail…", {
-      description: `Not a Gmail user? Write to ${selfData.email} from any mail app.`,
+      description: `Not on Gmail? Use the Outlook links below.`,
     });
   };
 
-  // Fallback for anyone not on Gmail — hands the same message to whatever
-  // mail client the visitor actually uses.
-  const mailtoHref = () => {
+  const openOutlook = (account: "personal" | "work") => {
     const { subject, body } = composed();
-    return mailtoUrl(subject, body);
+    openInNewTab(outlookComposeUrl(account, subject, body));
+  };
+
+  // mailto: does nothing on a machine with no mail client configured, so the
+  // address is offered as a copy instead of a dead link.
+  const copyAddress = async () => {
+    try {
+      await navigator.clipboard.writeText(selfData.email);
+      toast.success("Email address copied");
+    } catch {
+      toast.info(selfData.email, { description: "Copy this address" });
+    }
   };
 
   return (
@@ -172,26 +184,49 @@ export const ContactFormCard = () => {
               Send via Gmail
             </motion.button>
 
+            {/* Outlook alternatives — personal and work are different hosts,
+                so a link to one does not work on the other. */}
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => openOutlook("personal")}
+                className="flex-1 px-4 py-2.5 rounded-xl text-sm font-medium transition-colors duration-200"
+                style={{
+                  background: "hsl(var(--primary) / 0.07)",
+                  border: "1px solid hsl(var(--primary) / 0.25)",
+                  color: "hsl(var(--foreground) / 0.85)",
+                }}
+              >
+                Outlook · personal
+              </button>
+              <button
+                type="button"
+                onClick={() => openOutlook("work")}
+                className="flex-1 px-4 py-2.5 rounded-xl text-sm font-medium transition-colors duration-200"
+                style={{
+                  background: "hsl(var(--primary) / 0.07)",
+                  border: "1px solid hsl(var(--primary) / 0.25)",
+                  color: "hsl(var(--foreground) / 0.85)",
+                }}
+              >
+                Outlook · work
+              </button>
+            </div>
+
             <p
               className="text-xs text-center"
               style={{ color: "hsl(var(--foreground) / 0.55)" }}
             >
-              Opens Gmail with the message ready to send. Not on Gmail?{" "}
-              <a
-                href={mailtoHref()}
+              Each button opens a compose window with the message ready to
+              send. Or{" "}
+              <button
+                type="button"
+                onClick={copyAddress}
                 className="underline underline-offset-2"
                 style={{ color: "hsl(var(--primary))" }}
               >
-                Use your own mail app
-              </a>{" "}
-              or write to{" "}
-              <a
-                href={`mailto:${selfData.email}`}
-                className="underline underline-offset-2"
-                style={{ color: "hsl(var(--primary))" }}
-              >
-                {selfData.email}
-              </a>
+                copy {selfData.email}
+              </button>
               .
             </p>
           </form>

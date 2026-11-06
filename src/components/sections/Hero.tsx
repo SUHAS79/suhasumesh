@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { selfData } from "@/constant";
-import { gmailComposeUrl } from "@/lib/gmail";
+import { gmailComposeUrl } from "@/lib/compose";
 import { quentine, mono } from "@/app/fonts";
 
 const containerVariants = {
